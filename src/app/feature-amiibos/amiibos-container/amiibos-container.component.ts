@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Amiibo } from '../../data-access/amiibo.class';
+import { Amiibo } from '../../shared/data-access/amiibo.class';
 import { AmiibosContainerFacade } from './amiibos-container.facade';
 
 @Component({
@@ -11,7 +11,7 @@ import { AmiibosContainerFacade } from './amiibos-container.facade';
 export class AmiibosContainerComponent implements OnInit {
   amiibos$: Observable<Amiibo[]>;
 
-  constructor(private facade: AmiibosContainerFacade) { 
+  constructor(private facade: AmiibosContainerFacade) {
     this.amiibos$ = this.facade.amiibos$;
   }
 

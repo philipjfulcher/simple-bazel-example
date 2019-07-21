@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, first, map } from 'rxjs/operators';
-import { AmiiboAPIService } from '../../data-access/amiibo-api.service';
-import { Amiibo } from '../../data-access/amiibo.class';
+import { AmiiboAPIService } from '../../shared/data-access/amiibo-api.service';
+import { Amiibo } from '../../shared/data-access/amiibo.class';
 
 export interface AmiibosState {
-  amiibos: Amiibo[]
-};
+  amiibos: Amiibo[];
+}
 
-let initialState: AmiibosState = {
+const initialState: AmiibosState = {
   amiibos: []
 };
 
@@ -22,7 +22,8 @@ export class AmiibosContainerFacade {
   amiibos$: Observable<Amiibo[]> = this.state$.pipe(
     map(state => state.amiibos),
     distinctUntilChanged()
-  )
+  );
+
   constructor(private amiibosAPI: AmiiboAPIService) {
     this.getAllAmiibos();
   }
@@ -32,7 +33,7 @@ export class AmiibosContainerFacade {
   }
 
   private getAllAmiibos() {
-    this.amiibosAPI.getAllAmiibos().pipe(
+    this.amiibosAPI.amiibos$.pipe(
       first()
     ).subscribe(amiibos => this.updateState({ ...this.store.getValue(), amiibos }));
   }

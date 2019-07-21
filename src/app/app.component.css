@@ -1,7 +1,12 @@
+:host {
+  display: block;
+  min-height: 100%;
+  background-color: #1b2f3a;
+}
+
 nav ul {
   list-style-type: none;
   width: 100%;
-  background-color: rebeccapurple;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,14 +16,15 @@ nav ul {
   margin-left: auto;
   background-color: rgba(0,0,0,1);
   height: 104px;
+  margin: 0;
 }
 
 nav li {
-  color: #fff;
   margin-right: 1.5em;
 }
 
 a {
+  color: #fff;
   text-decoration: none;
   font-size: 15px;
   text-transform: uppercase;

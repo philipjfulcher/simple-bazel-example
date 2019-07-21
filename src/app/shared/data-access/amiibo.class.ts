@@ -9,11 +9,11 @@ export class Amiibo {
     type: string;
 }
 
-export type AmiibosResponse<T> = {
+export interface AmiibosResponse<T> {
     amiibo: T[];
-};
+}
 
-export class GameSeries {
-    key: string;
+export class AmiiboType {
     name: string;
+    image: string;
 }
