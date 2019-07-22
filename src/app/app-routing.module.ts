@@ -11,6 +11,11 @@ const routes: Routes = [
   {
     path: 'types',
     component: AmiiboTypesContainerComponent
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/amiibos'
   }
 ];
 
