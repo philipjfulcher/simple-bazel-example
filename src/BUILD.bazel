@@ -42,6 +42,8 @@ ng_module(
         "@npm//@angular/router",
         "@npm//@types",
         "@npm//rxjs",
+        "//src/app/feature-amiibos",
+        "//src/app/feature-amiibo-types"
     ],
 )
 
